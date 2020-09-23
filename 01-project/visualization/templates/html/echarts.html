@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>模型分析</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+    <script type="text/javascript" src="/static/js/echarts.js"></script>
+</head>
+<style type="text/css">
+	body,html
+	{
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f2f2;
+	}
+	.frame
+	{
+		width: 65vw;
+		height: 35vw;
+		margin: 15px 0 0 390px;
+	}
+</style>
+<body>
+    <div>
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;background-color: rgba(41,41,41,0.77)">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">情感分析可视化</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <div class="navbar-default sidebar" role="navigation" style="background-color: #2b2c2c;height: 599px">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="{% url 'select_name1' %}" style="color: #6d6d6d"><i class="fa fa-dashboard fa-fw nav_icon"></i>词云展示</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'select_name2' %}" style="color: #6d6d6d"><i class="fa fa-laptop nav_icon"></i>模型分析<span class="fa arrow"></span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'select_name3' %}" style="color: #6d6d6d"><i class="fa fa-indent nav_icon"></i>情感分析<span class="fa arrow"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="frame">
+        <div id = 'data' style="width: 400px;height:280px;display: inline;float: left;"></div>
+        <div id = 'loss' style="width: 400px;height:280px;display: inline;float: right;"></div><br>
+        <div id = 'mean_absolute_error' style="width: 400px;height:280px;display: inline;float: left;"></div>
+        <div id = 'acc' style="width: 400px;height:280px;display: inline;float: right;"></div>
+
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('data'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: '语料数据统计',
+                    subtext: 'from 微博',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    {#formatter: '{a} <br/>{b} : {c} ({d}%)'#}
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['喜悦', '喜欢','愤怒', '厌恶', '害怕','中性', '低落','惊讶']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: [
+                            {value: 3994, name: '喜悦'},
+                            {value: 3501, name: '喜欢'},
+                            {value: 3034, name: '愤怒'},
+                            {value: 2967, name: '厌恶'},
+                            {value: 203, name: '害怕'},
+                            {value: 3359, name: '中性'},
+                            {value: 2650, name: '低落'},
+                             {value: 474, name: '惊讶'}
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+        <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('loss'));
+
+                // 指定图表的配置项和数据
+                var option = {
+                    title: {
+                        text: 'loss对比'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['训练集', '测试集']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '训练集',
+                            type: 'line',
+                            data: [0.7793 ,0.7379,0.7199 ,0.6795,0.6398 ,0.6106,0.5817,0.5538 ,0.4930 ,.4469,0.4142 ,0.3813,0.3377 ,0.3236,0.2946,0.2675,0.2391 ,0.2013,0.1973 ,0.1864]
+                        },
+                        {
+                            name: '测试集',
+                            type: 'line',
+                            data: [0.6684,0.6432,0.6359, 0.6490 ,0.6278 ,0.5840 ,0.5474,0.5069 ,0.5693 ,0.4970 ,0.4476, 0.4073,0.3632, 0.3465,0.3219,0.3076,0.3387 ,0.3501,0.3485 ,0.3694]
+                        },
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+        </script>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('mean_absolute_error'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: 'MAE对比'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['训练集', '测试集']
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: '训练集',
+                        type: 'line',
+                        data: [0.2952,0.2472,0.2354,0.2226,0.2081,0.1958, 0.1853,0.1759,0.1654 ,0.1603 ,0.1540, 0.1498 ,0.1320,0.1289 ,0.1235,0.1176, 0.1065 ,0.0989 ,0.0843 ,0.0807]
+                    },
+                    {
+                        name: '测试集',
+                        type: 'line',
+                        data: [0.2399 ,0.2301,0.2268 ,0.2129, 0.2111,0.2054,0.2009 ,0.1950,0.1935 , 0.1905, 0.1893, 0.1645 , 0.1864 ,0.1820 , 0.1798,0.1775,0.1745, 0.1721 ,0.1698,0.1675]
+                    },
+                ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+        <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('acc'));
+
+                // 指定图表的配置项和数据
+                var option = {
+                    title: {
+                        text: 'acc对比'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['训练集', '测试集']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '训练集',
+                            type: 'line',
+                            data: [0.6662,0.7241,0.7424,0.7610 ,0.7758,0.7932 ,0.8050,0.8318, 0.8536 ,0.8667 ,0.8874,0.9065,0.9293 ,0.9308 ,0.9344 ,0.9472,0.9499,0.9608,0.9639 ,0.9712 ]
+                        },
+                        {
+                            name: '测试集',
+                            type: 'line',
+                            data: [0.7003,0.7183,0.7374, 0.7532,0.7702,0.7866,0.7917,0.8025,0.8236,0.8385,0.8572,0.8793,0.8836,0.9019,0.9146, 0.9105,0.9037,0.9138,0.9023,0.8936]
+                        },
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+        </script>
+    </div>
+
+<link href="/static/css/custom.css" rel="stylesheet">
+</body>
+</html>

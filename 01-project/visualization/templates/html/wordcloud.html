@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>词云展示</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/banner.css">
+	<script type="text/javascript" src="/static/js/banner.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+	body,html
+	{
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f2f2;
+	}
+	.frame
+	{
+        width: 75vw;
+		height: 35vw;
+		margin: 70px 0 0 280px;
+        {#background-color: #0b0b0b;#}
+        {#position: absolute;#}
+	}
+    .font-frame1
+    {
+        display: inline;
+        float: left;
+        width: 10vw;
+		height: 100%;
+        {#background-color: #f2f2f2;#}
+    }
+    .font-frame2
+    {
+       display: inline;
+        float: right;
+        width: 10vw;
+		height: 100%;
+        {#background-color: #2b542c;#}
+    }
+    .banner-frame
+    {
+        float: left;
+        width: 50vw;
+		height: 30vw;
+		margin: 0 0 0 35px;
+        display: inline;
+    }
+</style>
+<body>
+{#    <canvas id="c" width="300" height="150" style="position: fixed;bottom: 0;z-index: 0"></canvas>#}
+{#    <script type="text/javascript">#}
+{#		$(document).ready(function() {#}
+{#            var canvas = document.getElementById("c");#}
+{#			var ctx = canvas.getContext("2d");#}
+{#			var c = $("#c");#}
+{#			var w,h;#}
+{#			var pi = Math.PI;#}
+{#			var all_attribute = {#}
+{#				num:100,            			 // 个数#}
+{#				start_probability:0.1,		     // 如果数量小于num，有这些几率添加一个新的#}
+{#				radius_min:1,   			     // 初始半径最小值#}
+{#				radius_max:2,   			     // 初始半径最大值#}
+{#				radius_add_min:.3,               // 半径增加最小值#}
+{#				radius_add_max:.5,               // 半径增加最大值#}
+{#				opacity_min:0.3,                 // 初始透明度最小值#}
+{#				opacity_max:0.5, 				 // 初始透明度最大值#}
+{#				opacity_prev_min:.003,            // 透明度递减值最小值#}
+{#				opacity_prev_max:.005,            // 透明度递减值最大值#}
+{#				light_min:40,                 // 颜色亮度最小值#}
+{#				light_max:70,                 // 颜色亮度最大值#}
+{#			};#}
+{#			var style_color = find_random(0,360);#}
+{#			var all_element =[];#}
+{#			window_resize();#}
+{#			function start(){#}
+{#				window.requestAnimationFrame(start);#}
+{#				style_color+=.1;#}
+{#				ctx.fillStyle = 'hsl('+style_color+',100%,97%)';#}
+{#				ctx.fillRect(0, 0, w, h);#}
+{#				if (all_element.length < all_attribute.num && Math.random() < all_attribute.start_probability){#}
+{#					all_element.push(new ready_run);#}
+{#				}#}
+{#				all_element.map(function(line) {#}
+{#					line.to_step();#}
+{#				})#}
+{#			}#}
+{#			function ready_run(){#}
+{#				this.to_reset();#}
+{#			}#}
+{#			ready_run.prototype = {#}
+{#				to_reset:function(){#}
+{#					var t = this;#}
+{#					t.x = find_random(0,w);#}
+{#					t.y = find_random(0,h);#}
+{#					t.radius = find_random(all_attribute.radius_min,all_attribute.radius_max);#}
+{#					t.radius_change = find_random(all_attribute.radius_add_min,all_attribute.radius_add_max);#}
+{#					t.opacity = find_random(all_attribute.opacity_min,all_attribute.opacity_max);#}
+{#					t.opacity_change = find_random(all_attribute.opacity_prev_min,all_attribute.opacity_prev_max);#}
+{#					t.light = find_random(all_attribute.light_min,all_attribute.light_max);#}
+{#					t.color = 'hsl('+style_color+',100%,'+t.light+'%)';#}
+{#				},#}
+{#				to_step:function(){#}
+{#					var t = this;#}
+{#					t.opacity -= t.opacity_change;#}
+{#					t.radius += t.radius_change;#}
+{#					if(t.opacity <= 0){#}
+{#						t.to_reset();#}
+{#						return false;#}
+{#					}#}
+{#					ctx.fillStyle = t.color;#}
+{#					ctx.globalAlpha = t.opacity;#}
+{#					ctx.beginPath();#}
+{#					ctx.arc(t.x,t.y,t.radius,0,2*pi,true);#}
+{#					ctx.closePath();#}
+{#					ctx.fill();#}
+{#					ctx.globalAlpha = 1;#}
+{#				}#}
+{#			}#}
+{#			function window_resize(){#}
+{#				w = window.innerWidth;#}
+{#				h = window.innerHeight;#}
+{#				canvas.width = w;#}
+{#				canvas.height = h;#}
+{#			}#}
+{#			$(window).resize(function(){#}
+{#				window_resize();#}
+{#			});#}
+{#			function find_random(num_one,num_two){#}
+{#				return Math.random()*(num_two-num_one)+num_one;#}
+{#			}#}
+{#			(function() {#}
+{#				var lastTime = 0;#}
+{#				var vendors = ['webkit', 'moz'];#}
+{#				for(var xx = 0; xx < vendors.length && !window.requestAnimationFrame; ++xx) {#}
+{#					window.requestAnimationFrame = window[vendors[xx] + 'RequestAnimationFrame'];#}
+{#					window.cancelAnimationFrame = window[vendors[xx] + 'CancelAnimationFrame'] ||#}
+{#												  window[vendors[xx] + 'CancelRequestAnimationFrame'];#}
+{#				}#}
+{##}
+{#				if (!window.requestAnimationFrame) {#}
+{#					window.requestAnimationFrame = function(callback, element) {#}
+{#						var currTime = new Date().getTime();#}
+{#						var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));#}
+{#						var id = window.setTimeout(function() {#}
+{#							callback(currTime + timeToCall);#}
+{#						}, timeToCall);#}
+{#						lastTime = currTime + timeToCall;#}
+{#						return id;#}
+{#					};#}
+{#				}#}
+{#				if (!window.cancelAnimationFrame) {#}
+{#					window.cancelAnimationFrame = function(id) {#}
+{#						clearTimeout(id);#}
+{#					};#}
+{#				}#}
+{#			}());#}
+{#			start();#}
+{#        });#}
+{#	</script>#}
+    <div>
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;background-color: rgba(41,41,41,0.77)">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">情感分析可视化</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <div class="navbar-default sidebar" role="navigation" style="background-color: #2b2c2c;height: 599px">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="{% url 'select_name1' %}" style="color: #6d6d6d"><i class="fa fa-dashboard fa-fw nav_icon"></i>词云展示</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'select_name2' %}" style="color: #6d6d6d"><i class="fa fa-laptop nav_icon"></i>模型分析<span class="fa arrow"></span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'select_name3' %}" style="color: #6d6d6d"><i class="fa fa-indent nav_icon"></i>情感分析<span class="fa arrow"></span></a>
+                            {#                            <ul class="nav nav-second-level">#}
+{#                                <li>#}
+{#                                    <a href="grids.html">Grid System</a>#}
+{#                                </li>#}
+{#                            </ul>#}
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="frame">
+        <div class="font-frame1">
+            <br><br><br><br><br>
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1-喜悦</h3>
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-喜欢</h3>
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3-愤怒</h3>
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4-厌恶</h3>
+
+        </div>
+
+        <div class="banner-frame">
+            <div class="banners">
+                <!--左右-->
+                <div class="click_left"><img class="get_height" onclick="banner_left_right('left')" src="/static/images/banner_left.png"></div>
+                <div class="click_right"><img onclick="banner_left_right('right')" src="/static/images/banner_right.png"></div>
+                <div class="number">
+                    <div class="numbers"></div>
+                    <div style="clear: both;"></div>
+                </div>
+
+
+                <div class="banner_img">
+                    <img class="banner_img1" style="height: 412px;width: 686px;" src="/static/images/happiness.png">
+                    <img class="banner_img2" style="height: 412px;width: 686px;" src="/static/images/like.png">
+                    <img class="banner_img3" style="height: 412px;width: 686px;" src="/static/images/anger.png">
+                    <img class="banner_img4" style="height: 412px;width: 686px;" src="/static/images/disgust.png">
+
+
+                    <img class="banner_img5" style="height: 412px;width: 686px;" src="/static/images/fear.png">
+                    <img class="banner_img6" style="height: 412px;width: 686px;" src="/static/images/none.png">
+                    <img class="banner_img7" style="height: 412px;width: 686px;" src="/static/images/sadness.png">
+                    <img class="banner_img8" style="height: 412px;width: 686px;" src="/static/images/surprise.png">
+
+                </div>
+
+                <!--此段代码不可移动位置-->
+                <script type="text/javascript">
+                    loads();
+                </script>
+                <!--此段代码不可移动位置-->
+            </div>
+        </div>
+        <div class="font-frame2">
+                <br><br><br><br><br>
+                <h3>5-害怕</h3>
+                <h3>6-中性</h3>
+                <h3>7-低落</h3>
+                <h3>8-惊讶</h3>
+        </div>
+    </div>
+
+    <link href="/static/css/custom.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/custom.js"></script>
+
+</body>
+</html>

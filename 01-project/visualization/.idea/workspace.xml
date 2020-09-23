@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a51dc405-7149-4686-8503-2dc715f9de7d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZCYHGgRIKCSO7TMx7FZXmL7r5c" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\pythonDoc\01-project\visualization\static\css" />
+      <recent name="D:\pythonDoc\01-project\visualization\myApp" />
+      <recent name="D:\pythonDoc\01-project\visualization\static" />
+      <recent name="D:\pythonDoc\01-project\visualization\static\js" />
+      <recent name="D:\pythonDoc\01-project\visualization" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\pythonDoc\01-project\visualization\myApp" />
+      <recent name="D:\pythonDoc\01-project\visualization\static\images" />
+      <recent name="D:\pythonDoc\01-project\visualization\static\js" />
+      <recent name="D:\pythonDoc\01-project\visualization\static\css" />
+      <recent name="D:\pythonDoc\01-project\visualization\templates\html" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.views">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="visualization" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myApp/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="visualization" type="Python.DjangoServer" factoryName="Django server">
+      <module name="visualization" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a51dc405-7149-4686-8503-2dc715f9de7d" name="Default Changelist" comment="" />
+      <created>1584344454043</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584344454043</updated>
+      <workItem from="1584344464486" duration="16217000" />
+      <workItem from="1584427401586" duration="14147000" />
+      <workItem from="1584499746519" duration="2111000" />
+      <workItem from="1584602152207" duration="941000" />
+      <workItem from="1584954557976" duration="641000" />
+      <workItem from="1584967358848" duration="47000" />
+      <workItem from="1585034666043" duration="6685000" />
+      <workItem from="1585047704268" duration="4432000" />
+      <workItem from="1585096603680" duration="679000" />
+      <workItem from="1585104622657" duration="888000" />
+      <workItem from="1585553650532" duration="5715000" />
+      <workItem from="1585708952170" duration="3094000" />
+      <workItem from="1585716412323" duration="495000" />
+      <workItem from="1585752180383" duration="1340000" />
+      <workItem from="1585824784724" duration="1379000" />
+      <workItem from="1585830842936" duration="42000" />
+      <workItem from="1585831062170" duration="381000" />
+      <workItem from="1586158297292" duration="254000" />
+      <workItem from="1586249740253" duration="1259000" />
+      <workItem from="1586343327210" duration="38000" />
+      <workItem from="1586343376091" duration="558000" />
+      <workItem from="1586592452154" duration="43000" />
+      <workItem from="1586680804252" duration="2622000" />
+      <workItem from="1586687892103" duration="112000" />
+      <workItem from="1586755255904" duration="4468000" />
+      <workItem from="1586767948940" duration="140000" />
+      <workItem from="1587542475477" duration="691000" />
+      <workItem from="1587545197436" duration="674000" />
+      <workItem from="1587547630273" duration="608000" />
+      <workItem from="1587606935165" duration="884000" />
+      <workItem from="1589358133070" duration="1205000" />
+      <workItem from="1589499936251" duration="2252000" />
+      <workItem from="1593668648958" duration="26000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1095" height="495" key="DiffContextDialog" timestamp="1585047766735">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="93" y="93" width="1095" height="495" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1585047766735" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1593668666912">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1593668666912" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585053024859">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585053024859" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585053024859">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585053024859" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585053024859">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585053024859" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585053024859">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585053024859" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/visualization$views.coverage" NAME="views Coverage Results" MODIFIED="1585050599318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/myApp" />
+  </component>
+</project>
